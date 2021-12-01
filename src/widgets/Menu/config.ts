@@ -175,8 +175,19 @@ export const socials = [
   {
     label: "Twitter",
     icon: "TwitterIcon",
-    href: "https://twitter.com/WIZARD_BSC",
+    href: "https://twitter.com/KnightEcosystem",
   },
+  {
+    label: "Medium",
+    icon: "MediumIcon",
+    href: "https://medium.com/knight-bsc-dark-knight-ftm/",
+  },
+  {
+    label: "Discord",
+    icon: "DiscordIcon",
+    href: "https://discord.gg/pvM2kQzv4C",
+  },
+  
   // {
   //   label: "Reddit",
   //   icon: "RedditIcon",
