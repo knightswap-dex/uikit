@@ -2248,56 +2248,7 @@ var socials = [
     {
         label: "Telegram",
         icon: "TelegramIcon",
-        items: [
-            {
-                label: "English",
-                href: "https://t.me/wizard_financial",
-            },
-            // {
-            //   label: "Bahasa Indonesia",
-            //   href: "https://t.me/PancakeSwapIndonesia",
-            // },
-            {
-                label: "中文",
-                href: " https://t.me/WizardFinancialCN",
-            },
-            // {
-            //   label: "Tiếng Việt",
-            //   href: "https://t.me/PancakeSwapVN",
-            // },
-            // {
-            //   label: "Italiano",
-            //   href: "https://t.me/goosefinanceitalian",
-            // },
-            // {
-            //   label: "русский",
-            //   href: "https://t.me/goosefinancerussian",
-            // },
-            {
-                label: "Türkiye",
-                href: "https://t.me/wizardfinancialTurkey",
-            },
-            // {
-            //   label: "Português",
-            //   href: "https://t.me/PancakeSwapPortuguese",
-            // },
-            // {
-            //   label: "Español",
-            //   href: "https://t.me/goosefinancespanish",
-            // },
-            {
-                label: "日本語",
-                href: "https://t.me/wizardfinancialJPN",
-            },
-            // {
-            //   label: "Français",
-            //   href: "https://t.me/goosefinancefrench",
-            // },
-            {
-                label: "Announcements",
-                href: "https://t.me/WIZARDannouncements",
-            },
-        ],
+        href: "https://t.me/knightswap"
     },
     {
         label: "Twitter",
@@ -2448,9 +2399,6 @@ var PanelFooter = function (_a) {
             var Icon = Icons$1[social.icon];
             var iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
             var mr = index < socials.length - 1 ? "8px" : 0;
-            if (social.items) {
-                return (React__default['default'].createElement(Dropdown, { key: social.label, target: React__default['default'].createElement(Icon, __assign({}, iconProps, { mr: mr })) }, social.items.map(function (item) { return (React__default['default'].createElement(Link, { external: true, key: item.label, href: item.href, "aria-label": item.label, color: "textSubtle" }, item.label)); })));
-            }
             return (React__default['default'].createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
                 React__default['default'].createElement(Icon, __assign({}, iconProps))));
         }))));
