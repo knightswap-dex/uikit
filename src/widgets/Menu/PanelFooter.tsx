@@ -77,7 +77,7 @@ const PanelFooter: React.FC<Props> = ({
 
   return (
     <Container>
-      <SocialEntry>
+      {/* <SocialEntry>
         {cakePriceUsd ? (
           <PriceLink href={priceLink} target="_blank">
             <PancakeRoundIcon width="24px" mr="8px" />
@@ -86,14 +86,63 @@ const PanelFooter: React.FC<Props> = ({
         ) : (
           <Skeleton width={80} height={24} />
         )}
-        <Flex>
-          {socials.map((social, index) => {
+      
+      </SocialEntry> */}
+
+
+
+
+<SettingsEntry>
+   
+   {/* <Button variant="text" onClick={() => toggleTheme(!isDark)}> */}
+     {/* alignItems center is a Safari fix */}
+     {/* <Flex alignItems="center"> */}
+       {/* <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" /> */}
+       {/* <Text color="textDisabled" mx="4px"> */}
+         {/* / */}
+       {/* </Text> */}
+       {/* <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" /> */}
+     {/* </Flex> */}
+   {/* </Button> */}
+
+
+ {cakePriceUsd ? (
+     <PriceLink href={priceLink} target="_blank">
+       <PancakeRoundIcon width="24px" mr="8px" />
+       <Text color="textSubtle" bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+     </PriceLink>
+   ) : (
+     <Skeleton width={80} height={24} />
+   )}
+   <Dropdown
+     target={
+       <Button variant="text" startIcon={<LanguageIcon color="textSubtle" width="24px" />}>
+         <Text color="textSubtle">{currentLang?.toUpperCase()}</Text>
+       </Button>
+     }
+   >
+     {langs.map((lang) => (
+       <MenuButton
+         key={lang.code}
+         fullWidth
+         onClick={() => setLang(lang)}
+         // Safari fix
+         style={{ minHeight: "32px", height: "auto" }}
+       >
+         {lang.language}
+       </MenuButton>
+     ))}
+   </Dropdown>
+ </SettingsEntry>
+      <SocialEntry>
+     
+      {socials.map((social, index) => {
             const Icon = Icons[social.icon];
             const iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
             const mr = index < socials.length - 1 ? "8px" : 0;
             if (social.items) {
               return (
-                <Dropdown key={social.label} position="top" target={<Icon {...iconProps} mr={mr} />}>
+                <Dropdown key={social.label}  target={<Icon {...iconProps} mr={mr} />}>
                   {social.items.map((item) => (
                     <Link external key={item.label} href={item.href} aria-label={item.label} color="textSubtle">
                       {item.label}
@@ -108,40 +157,8 @@ const PanelFooter: React.FC<Props> = ({
               </Link>
             );
           })}
-        </Flex>
       </SocialEntry>
-      <SettingsEntry>
-        {/* <Button variant="text" onClick={() => toggleTheme(!isDark)}> */}
-          {/* alignItems center is a Safari fix */}
-          {/* <Flex alignItems="center"> */}
-            {/* <SunIcon color={isDark ? "textDisabled" : "text"} width="24px" /> */}
-            {/* <Text color="textDisabled" mx="4px"> */}
-              {/* / */}
-            {/* </Text> */}
-            {/* <MoonIcon color={isDark ? "text" : "textDisabled"} width="24px" /> */}
-          {/* </Flex> */}
-        {/* </Button> */}
-        <Dropdown
-          position="top-right"
-          target={
-            <Button variant="text" startIcon={<LanguageIcon color="textSubtle" width="24px" />}>
-              <Text color="textSubtle">{currentLang?.toUpperCase()}</Text>
-            </Button>
-          }
-        >
-          {langs.map((lang) => (
-            <MenuButton
-              key={lang.code}
-              fullWidth
-              onClick={() => setLang(lang)}
-              // Safari fix
-              style={{ minHeight: "32px", height: "auto" }}
-            >
-              {lang.language}
-            </MenuButton>
-          ))}
-        </Dropdown>
-      </SettingsEntry>
+    
     </Container>
   );
 };
